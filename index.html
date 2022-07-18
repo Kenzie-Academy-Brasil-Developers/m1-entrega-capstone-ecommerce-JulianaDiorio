@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="cabecalho">
+            <img class="logo" src="./img/Partum Logo - Original - 5000x5000.png" alt="logo Partum">
+            <div class="menu">
+                <button class="catTodos" href="">Todos</button>
+                <button class="catAcessorios" href="">Acessórios</button>
+                <button class="catUtilidades" href="">Utilidades</button>
+                <button class="catCosmeticos" href="">Cosméticos</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="produtos">
+            <ul class="listagemProdutos">
+
+                <li class="liProduto">
+                    <img src="./img/anel mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Acessórios</span>
+                        <h2>Anel Mermaid</h2>
+                        <p>Anel prata com cauda de sereia cravejada em cristais azuis e pérolas. Regulável.</p>
+                        <strong>R$ 19,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/colar mermaid1.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Acessórios</span>
+                        <h2>Colar de Concha</h2>
+                        <p>Colar dourado com pingente de concha espiral, cravejado com cristais na cor lilás e mini cristais pretos, ajustável.</p>
+                        <strong>R$ 29,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/bolsa mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Acessórios</span>
+                        <h2>Bolsa Shell</h2>
+                        <p>Bolsa de concha shell, em material furta-cor branco, possui alça longa de corrente dourada. Tamanho: pequena.</p>
+                        <strong>R$ 39,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/caneca mermaid2.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Utilidades</span>
+                        <h2>Caneca Mermaid</h2>
+                        <p>Caneca furta-cor roxa, com alça no formato da cauda de sereia e toda decorada em belíssimas escamas.</p>
+                        <strong>R$ 21,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/copo mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Utilidades</span>
+                        <h2>Copo Mermaid</h2>
+                        <p>Copo de cristal transparente, o seu interior simula detalhadamente o formato de uma calda de sereia. 300ml</p>
+                        <strong>R$ 19,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/maquiagem mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Cosméticos</span>
+                        <h2>Paleta de Sombras Mermaid</h2>
+                        <p>Estojo confeccionado em couro ecológico azul, com uma incrível gama de cores, que remetem ao universo Mermaid.</p>
+                        <strong>R$ 49,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/perfume mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Cosméticos</span>
+                        <h2>Fantasia Mermaid - Anna Sui</h2>
+                        <p>Com notas de cardamomo e mel, seu cheiro é refrescante e doce, sem ser enjoativo, remetendo à água do mar.</p>
+                        <strong>R$ 139,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+
+                <li class="liProduto">
+                    <img src="./img/pincéis mermaid.jpg" class="produtoImagem" alt="Anel Mermaid">
+                    <div class="caracteristicasProdutos">
+                        <span>Cosméticos</span>
+                        <h2>Conjunto de Pincéis Mermaid</h2>
+                        <p>O conjunto possui 11 peças, o cabo possui um belo degradê, e as cerdas são extremamente macia.</p>
+                        <strong>R$ 69,90</strong>
+                        <button class="addCarrinho" href="">Adicionar ao carrinho</button>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="carrinho">
+            <div class="campoPesquisa">
+                <input type="text" name="pesquisa" placeholder="Digite aqui sua pesquisa" required="true" id="pesquisa"/>
+                <button class="botaoPesquisa" type="submit">Pesquisar</button>
+            </div>
+            
+            <div class="carrinhoCompras">
+                <h3 class="tituloCarrinho">Carrinho de compras</h3>
+                <section class="itensCarrinho">
+                    <ul class="comprasCarrinho">
+                        <li class="visaoCarrinho">
+                            <img class="imagemCarrinho" src="./img/anel mermaid.jpg" alt="">
+                            <div class="caracteristicasItens">
+                                <h3 class="nomeItem">Anel Mermaid</h3>
+                                <strong class="precoItem">R$ 19,90</strong>
+                                <a href="">Remover produto</a>
+                            </div>
+                        </li>
+
+                        <li class="visaoCarrinho">
+                            <img class="imagemCarrinho" src="./img/caneca mermaid2.jpg" alt="">
+                            <div class="caracteristicasItens">
+                                <h3 class="nomeItem">Caneca Mermaid</h3>
+                                <strong class="precoItem">R$ 21,90</strong>
+                                <a href="">Remover produto</a>
+                            </div>
+                        </li>
+
+                        <li class="visaoCarrinho">
+                            <img class="imagemCarrinho" src="./img/colar mermaid1.jpg" alt="">
+                            <div class="caracteristicasItens">
+                                <h3 class="nomeItem">Colar de Concha</h3>
+                                <strong class="precoItem">R$ 29,90</strong>
+                                <a href="">Remover produto</a>
+                            </div>
+                        </li>
+
+                        <li class="visaoCarrinho">
+                            <img class="imagemCarrinho" src="./img/perfume mermaid.jpg" alt="">
+                            <div class="caracteristicasItens">
+                                <h3 class="nomeItem">Fantasia Mermaid - Anna Sui</h3>
+                                <strong class="precoItem">R$ 139,90</strong>
+                                <a href="">Remover produto</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </section>
+
+                <section class="compras">
+                    <span class="quantidadeCompra">
+                        <span class="quantidade">Quantidade:</span>
+                        <span class="numeroQuantidade">4</span>
+                    </span>
+                    <span class="totalCompra">
+                        <span class="total">Total:</span>
+                        <span class="valorTotal">R$ 211,60</span>
+                    </span>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./products.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

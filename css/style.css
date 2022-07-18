@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap');
+
+body{
+margin: 0;
+padding: 0;
+font-family: 'Vollkorn', serif;
+}
+
+header{
+    width: 100%;
+    height: 64px;
+}
+
+.cabecalho{
+    padding: 5px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: #63375A 0 0 10px 0;
+}
+
+.logo{
+    width: 200px;
+    height: 50px;
+}
+
+.menu{
+    text-decoration: none;
+    list-style: none;
+}
+
+.catTodos{
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0px 0px 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.catTodos:hover{
+    text-decoration: underline dotted #945286;
+    color: #945286;
+}
+
+.catAcessorios{
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0px 0px 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.catAcessorios:hover{
+    text-decoration: underline dotted #945286;
+    color: #945286;
+}
+
+.catUtilidades{
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0px 0px 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.catUtilidades:hover{
+    text-decoration: underline dotted #945286;
+    color: #945286;
+}
+
+.catCosmeticos{
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0px 0px 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.catCosmeticos:hover{
+    text-decoration: underline dotted #945286;
+    color: #945286;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(#A6F5E3,#DC8BB8);
+    padding: 0 30px 0 30px;
+}
+
+.listagemProdutos{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px 0px 0 30px;
+}
+
+.liProduto{
+    background-color: #ffffff;
+    border-radius: 2px;
+    margin: 15px 20px 15px 20px;
+    width: 280px;
+    border: solid 2px white;
+}
+
+.liProduto:hover{
+    background-color: #ffffff;
+    border-radius: 2px;
+    border: dotted 2px #945286;
+}
+
+.produtoImagem{
+    width: 200px;
+    height: 185px;
+    margin: 5px 40px;
+}
+
+.caracteristicasProdutos{
+    padding: 0 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+span{
+    background-color: #63375A;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 2px 4px;
+}
+
+h2{
+    margin: 10px 0 7px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p{
+    margin: 0 0 3px 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+strong{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0 6px 0;
+    color: #63375A;
+}
+
+.addCarrinho{
+    font-family: 'Vollkorn', serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background-color: white;
+    padding: 0 0 15px 0;
+    text-decoration: none;
+    color: black;
+}
+
+.addCarrinho:hover{
+    text-decoration: underline dotted #945286;
+    color: #945286;
+}
+
+.carrinho{
+    margin: 0 45px 0 0;
+}
+
+.campoPesquisa{
+    display: flex;
+    padding: 40px 0 0 0;
+}
+
+input{
+    padding: 5px 70px 5px 10px;
+    border-radius: 2px;
+    border: none;
+}
+
+.botaoPesquisa{
+    padding: 14px 8px;
+    margin: 0 0 0 10px;
+    background-color: #63375A;
+    color: white;
+    border: none;
+    border-radius: 2px;
+}
+
+.botaoPesquisa:hover{
+    text-decoration: underline dotted white;
+}
+
+.tituloCarrinho{
+    background-color: #903D72;
+    color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 18px 0 0 0;
+}
+
+.itensCarrinho {
+    height: 350px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+}
+
+.comprasCarrinho{
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.visaoCarrinho{
+    display: flex;
+    align-items: center;
+    margin: 15px 5px 0px 10px;
+}
+
+.imagemCarrinho{
+    width: 100px;
+    height: 97px;
+}
+
+.caracteristicasItens{
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+}
+
+.nomeItem{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.precoItem{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+a{
+    font-family: 'Vollkorn', serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    text-decoration: underline dotted #63375A;
+    color: #63375A;
+}
+
+.compras{
+    background-color: #63375A;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.quantidadeCompra{
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantidade{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.numeroQuantidade{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.totalCompra{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.valorTotal{
+    font-size: 16px;
+    font-weight: 400;
+}
