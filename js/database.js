@@ -1,64 +1,66 @@
-// Banco de dados dos produtos
-
-const data = [
+const products = [
   {
-    id: 1,
-    img: "../img/jaqueta.svg",
-    nameItem: "Lightweight Jacket",
-    description:
-      "Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...",
-    value: 100,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+      id: 0,
+      nome: 'Anel Mermaid',
+      preco: 19.90,
+      categoria: 'Acessórios',
+      descricao: 'Anel prata com cauda de sereia cravejada em cristais azuis e pérolas. Regulável.',
+      imagem: "./Projeto 1/anel mermaid.jpg"
   },
   {
-    id: 2,
-    img: "../img/gorro.svg",
-    nameItem: "Black Hat",
-    description:
-      "O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...",
-    value: 100,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Acessórios"],
+      id: 1,
+      nome: 'Colar de Concha',
+      preco: 29.90,
+      categoria: 'Acessórios',
+      descricao: 'Colar dourado com pingente de concha espiral, cravejado com cristais na cor lilás e mini cristais pretos, ajustável.',
+      imagem: "./Projeto 1/colar mermaid1.jpg"
   },
   {
-    id: 3,
-    img: "../img/mascara.svg",
-    nameItem: "Mask",
-    description:
-      "Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...",
-    value: 40,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Acessórios"],
+      id: 2,
+      nome: 'Bolsa Shell',
+      preco: 39.90,
+      categoria: 'Acessórios',
+      descricao: 'Bolsa de concha shell, em material furta-cor branco, possui alça longa de corrente dourada. Tamanho: pequena.',
+      imagem: "./Projeto 1/bolsa mermaid.jpg"
   },
   {
-    id: 4,
-    img: "../img/camiseta_preta.svg",
-    nameItem: "T-Shirt",
-    description:
-      "Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...",
-    value: 100,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+      id: 3,
+      nome: 'Caneca Mermaid',
+      preco: 21.90,
+      categoria: 'Utilidades',
+      descricao: 'Caneca furta-cor roxa, com alça no formato da cauda de sereia e toda decorada em belíssimas escamas.',
+      imagem: "./Projeto 1/caneca mermaid2.jpg"
   },
   {
-    id: 5,
-    img: "../img/camiseta_branca.svg",
-    nameItem: "Short-Sleeve T-Shirt",
-    description:
-      "Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...",
-    value: 100,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+      id: 4,
+      nome: 'Copo Mermaid',
+      preco: 19.90,
+      categoria: 'Utilidades',
+      descricao: 'Copo de cristal transparente, o seu interior simula detalhadamente o formato de uma calda de sereia. 300ml',
+      imagem: "./Projeto 1/copo mermaid.jpg"
   },
   {
-    id: 6,
-    img: "../img/moletom.svg",
-    nameItem: "Champion Packable Jacket",
-    description:
-      "Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...",
-    value: 100,
-    addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas"],
+      id: 5,
+      nome: 'Paleta de Sombras Mermaid',
+      preco: 49.90,
+      categoria: 'Cosméticos',
+      descricao: 'Estojo confeccionado em couro ecológico azul, com uma incrível gama de cores, que remetem ao universo Mermaid.',
+      imagem:"./Projeto 1/maquiagem mermaid.jpg"
   },
-];
+  {
+      id: 6,
+      nome: 'Fantasia Mermaid - Anna Sui',
+      preco: 139.90,
+      categoria:'Cosméticos',
+      descricao: 'Com notas de cardamomo e mel, seu cheiro é refrescante e doce, sem ser enjoativo, remetendo à água do mar.',
+      imagem:"./Projeto 1/perfume mermaid.jpg"
+  },
+  {
+      id:7,
+      nome: 'Conjunto de Pincéis Mermaid',
+      preco: 69.90,
+      categoria:'Cosméticos',
+      descricao: 'O conjunto possui 11 peças, o cabo possui um belo degradê, e as cerdas são extremamente macia.',
+      imagem:"./Projeto 1/pincéis mermaid.jpg"
+  },
+]
