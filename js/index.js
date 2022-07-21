@@ -37,21 +37,6 @@ catCosmeticos.classList.add('catCosmeticos')
 catCosmeticos.innerText = 'Cosméticos'
 menu.append(catTodos, catAcessorios, catUtilidades, catCosmeticos)
 
-//EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-catTodos.addEventListener('click', adcTodos)
-function adcTodos(produto){
-    if(produto.categoria === 'Acessórios' || 'Utilidades' || 'Cosméticos')
-    return
-}
-
-catAcessorios.addEventListener('click', adcAcessorios)
-function adcAcessorios(produto){
-    if(produto.categoria === 'Acessórios')
-    return
-}
-
-
 //MAIN - FILHO BODY
 const main = document.createElement('main')
 body.appendChild(main)
@@ -65,10 +50,6 @@ main.appendChild(produtos)
 const listagemProdutos = document.createElement('ul')
 listagemProdutos.classList.add('listagemProdutos')
 produtos.appendChild(listagemProdutos)
-
-
-
-
 
 //SECTION CARRINHO
 const carrinho = document.createElement('section')
@@ -85,27 +66,6 @@ const input = document.createElement('input')
 input.type = 'text'
 input.placeholder = 'Digite aqui sua pesquisa'
 campoPesquisa.appendChild(input)
-
-function fazerPesquisa(pesquisaItem){ 
-    
-    let resultado = []
-
-    for(let i = 0; i<produtos.length; i++){
-        
-        let pesquisa    = pesquisa.toLowerCase()
-        let nomeProduto = produtos[i].nome.toLowerCase()
-        let categoria = produtos[i].categoria.toLowerCase()
-        
-        if(nomeProduto.includes(pesquisa) || categoria.includes(pesquisa)){
-            
-            resultado.push(produtos[i])
-        
-        }
-    }
-
-    return resultado
-}
-
 
 //BUTTON PESQUISA - FILHO CAMPOPESQUISA
 const botaoPesquisa = document.createElement('button')
@@ -160,9 +120,6 @@ const total = document.createElement('span')
 total.classList.add('total')
 total.innerText = 'Total:'
 totalCompra.appendChild(total)
-
-
-
 
 
 
@@ -226,19 +183,19 @@ function criarCardProdutos(produtosLista){
 
 
 let valorTotal = document.createElement('span')
-//Array de armazenamento do carrinho
+
 let carrinhoArray = []
-//quando clicar em adc ao carrinho precisa que o produto seja colocado no array carrinho
+
 function produtoNoCarrinho(produto){
     comprasCarrinho.innerHTML = ''
     carrinhoArray.push(produto)
     criarCardsCarrinho(carrinhoArray)
     numeroQuantidade.innerText = `${carrinhoArray.length}`
+
 }
 
 
-
-//criar o card renderizado à partir do array - comprasCarrinho
+//CRIAR CARDS CARRINHO
 function criarCardsCarrinho(listaCarrinho){
 
     for(let i = 0; i < listaCarrinho.length; i++){
@@ -277,16 +234,11 @@ function criarCardsCarrinho(listaCarrinho){
         tagDiv.append(h2, strong, removerCarrinho)
         liCarrinho.append(tagImagem, tagDiv)
         comprasCarrinho.appendChild(liCarrinho)
-
-
-
-
         }
     }
 
 
-
-//remover itens filhos do carrinho
+//REMOVER ITENS DO CARRINHO
 function removerDoCarrinho(produto){
 
     comprasCarrinho.innerHTML = ''
@@ -303,8 +255,7 @@ function removerDoCarrinho(produto){
 }
 
 
-//FUNÇÃO CALCULAR VALOR TOTAL - erradooooooooooooooooooooo
-
+//FUNÇÃO CALCULAR VALOR TOTAL
 function precoCompra(fechamentoCarrinho){
     let precoTotal = 0
     for(let key in carrinhoArray){
@@ -317,3 +268,76 @@ function precoCompra(fechamentoCarrinho){
 let numeroQuantidade = document.createElement('span')
 numeroQuantidade.classList.add('numeroQuantidade')
 quantidadeCompra.appendChild(numeroQuantidade)
+
+
+//FUNÇÕES PARA FILTRO NO NAVEGADOR
+catTodos.addEventListener('click', function(){adcTodos(products)})
+
+function adcTodos(products){
+    listagemProdutos.innerHTML = ''
+    listarprodutos(products)
+}
+
+
+catAcessorios.addEventListener('click', function(){adcAcessorios(products, 'Acessórios')})
+
+function adcAcessorios(products, categoria){
+    listagemProdutos.innerHTML = '' 
+    let filtrados = [] 
+
+    for(let i = 0; i < products.length; i++){ 
+        let filtro = products[i].categoria.includes(categoria) 
+        if(filtro == true){ 
+            filtrados.push(products[i])
+        }
+    }
+    listarprodutos(filtrados)
+}
+
+catUtilidades.addEventListener('click', function(){adcUtilidades(products, 'Utilidades')})
+
+function adcUtilidades(products, categoria){
+    listagemProdutos.innerHTML = ''
+    let filtrados = []
+
+    for(let i = 0; i < products.length; i++){
+        let filtro = products[i].categoria.includes(categoria)
+        if(filtro == true){
+            filtrados.push(products[i])
+        }
+    }
+    listarprodutos(filtrados)
+}
+
+
+catCosmeticos.addEventListener('click', function(){adcCosmeticos(products, 'Cosméticos')})
+
+function adcCosmeticos(products, categoria){
+    listagemProdutos.innerHTML = ''
+    let filtrados = []
+
+    for(let i = 0; i < products.length; i++){
+        let filtro = products[i].categoria.includes(categoria)
+        if(filtro == true){
+            filtrados.push(products[i])
+        }
+    }
+    listarprodutos(filtrados)
+}
+
+//FUNÇÃO - PESQUISAR INPUT E BOTÃO
+botaoPesquisa.addEventListener("click", function(){pesquisaInput(products)})
+
+function pesquisaInput(products){
+    listagemProdutos.innerHTML = '' 
+    let pesquisa = input.value 
+
+
+    let pesquisado = products.filter(produto =>{
+        let nome = produto.nome.toLowerCase()
+        let categoria = produto.categoria.toLowerCase()
+        return nome.includes(pesquisa) | categoria.includes(pesquisa)
+    })
+    listarprodutos(pesquisado)
+}
+

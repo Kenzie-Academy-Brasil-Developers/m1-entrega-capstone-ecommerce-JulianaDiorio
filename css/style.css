@@ -98,6 +98,7 @@ main{
     flex-direction: row;
     background: linear-gradient(#A6F5E3,#DC8BB8);
     padding: 0 30px 0 30px;
+    height: 1320px;
 }
 
 .produtos{

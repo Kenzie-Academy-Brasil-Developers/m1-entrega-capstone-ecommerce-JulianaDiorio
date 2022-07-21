@@ -61,6 +61,6 @@ const products = [
       preco: 69.90,
       categoria:'Cosméticos',
       descricao: 'O conjunto possui 11 peças, o cabo possui um belo degradê, e as cerdas são extremamente macia.',
-      imagem:"./Projeto 1/pincéis mermaid.jpg"
+      imagem:"./img/pincéis mermaid.jpg"
   },
 ]
