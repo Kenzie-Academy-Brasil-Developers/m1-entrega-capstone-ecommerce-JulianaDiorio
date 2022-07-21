@@ -13,7 +13,7 @@ header.appendChild(cabecalho)
 // IMG LOGO - FILHO CABECALHO
 const logo = document.createElement('img')
 logo.classList.add('logo')
-logo.src = "./Projeto 1/Partum Logo - Original - 5000x5000.png"
+logo.src = "./img/Partum Logo - Original - 5000x5000.png"
 logo.alt = "Logo Partum"
 cabecalho.appendChild(logo)
 
@@ -37,7 +37,19 @@ catCosmeticos.classList.add('catCosmeticos')
 catCosmeticos.innerText = 'Cosméticos'
 menu.append(catTodos, catAcessorios, catUtilidades, catCosmeticos)
 
-//EVENTO FILTRAR NAVEGADORES
+//EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+catTodos.addEventListener('click', adcTodos)
+function adcTodos(produto){
+    if(produto.categoria === 'Acessórios' || 'Utilidades' || 'Cosméticos')
+    return
+}
+
+catAcessorios.addEventListener('click', adcAcessorios)
+function adcAcessorios(produto){
+    if(produto.categoria === 'Acessórios')
+    return
+}
 
 
 //MAIN - FILHO BODY
@@ -74,6 +86,27 @@ input.type = 'text'
 input.placeholder = 'Digite aqui sua pesquisa'
 campoPesquisa.appendChild(input)
 
+function fazerPesquisa(pesquisaItem){ 
+    
+    let resultado = []
+
+    for(let i = 0; i<produtos.length; i++){
+        
+        let pesquisa    = pesquisa.toLowerCase()
+        let nomeProduto = produtos[i].nome.toLowerCase()
+        let categoria = produtos[i].categoria.toLowerCase()
+        
+        if(nomeProduto.includes(pesquisa) || categoria.includes(pesquisa)){
+            
+            resultado.push(produtos[i])
+        
+        }
+    }
+
+    return resultado
+}
+
+
 //BUTTON PESQUISA - FILHO CAMPOPESQUISA
 const botaoPesquisa = document.createElement('button')
 botaoPesquisa.classList.add('botaoPesquisa')
@@ -101,19 +134,6 @@ const comprasCarrinho = document.createElement('ul')
 comprasCarrinho.classList.add('comprasCarrinho')
 itensCarrinho.appendChild(comprasCarrinho)
 
-// //H4 - FILHO ITENSCARRINHO
-// const h4 = document.createElement('h4')
-// h4.innerText = 'Carrinho vazio'
-// itensCarrinho.appendChild(h4)
-
-// //H5 - FILHO ITENSCARRINHO
-// const h5 = document.createElement('h5')
-// h5.innerText = 'Adicione itens'
-// itensCarrinho.appendChild(h5)
-
-
-
-
 //SECTION COMPRAS - FILHO CARRINHOCOMPRAS
 const compras = document.createElement('section')
 compras.classList.add('compras')
@@ -129,15 +149,6 @@ const quantidade = document.createElement('span')
 quantidade.classList.add('quantidade')
 quantidade.innerText = 'Quantidade: '
 quantidadeCompra.appendChild(quantidade)
-
-//FUNÇÃO PARA CALCULAR QUANTIDADE DE ITENS
-
-
-
-
-
-
-
 
 //SPAN TOTALCOMPRA - FILHO COMPRAS
 const totalCompra = document.createElement('span')
@@ -156,9 +167,7 @@ totalCompra.appendChild(total)
 
 
 //FUNCTION LER ITENS DO OBJETO
-function listarprodutos(listaprodutos, listagemProdutos){
-
-    listagemProdutos.innerHTML = ''
+function listarprodutos(listaprodutos){
 
     for(let i = 0; i <listaprodutos.length; i++){
         let produtosLista = listaprodutos[i]
@@ -166,7 +175,7 @@ function listarprodutos(listaprodutos, listagemProdutos){
         listagemProdutos.appendChild(cardProdutos)
     }
 }
-//listarprodutos(products, listagemProdutos)
+listarprodutos(products)
 
 //FUNCTION CRIAR CARDS
 function criarCardProdutos(produtosLista){
@@ -184,7 +193,12 @@ function criarCardProdutos(produtosLista){
     let h2 = document.createElement('h2')
     let p = document.createElement('p')
     let strong = document.createElement('strong')
-    let addCarrinho = document.createElement('button')
+
+
+    let addCarrinho = document.createElement('button') //produtoNoCarrinho
+
+    addCarrinho.addEventListener("click", () => produtoNoCarrinho(produtosLista))
+
 
     //DEFININDO ID NO BUTTON
     if(idProduto != undefined){
@@ -201,65 +215,105 @@ function criarCardProdutos(produtosLista){
     span.innerText = categoriaProduto
     h2.innerText = nomeProduto
     p.innerText = descricaoProduto
-    strong.innerText = `R$ ${precoProduto}`.replace('.',',')
+    strong.innerText = `R$ ${precoProduto.toFixed(2)}`.replace('.',',')
     addCarrinho.innerText = `Adicionar ao carrinho`
 
     liProduto.append(tagImagem, caracteristicasProdutos)
     caracteristicasProdutos.append(span, h2, p, strong, addCarrinho)
 
-
-
-    addCarrinho.addEventListener("click", verificarCarrinho)
-
-
-    function verificarCarrinho(evento){
-
-        let buttonComprar = evento.target
-    
-        //VERIFICANDO SE O CLIQUE FOI EM UM BOTÃO
-        if(buttonComprar.tagName === "BUTTON"){
-            // let produto = buttonComprar.closest("li").cloneNode(true)
-            // comprasCarrinho.appendChild(produto)
-            let idCompra = buttonComprar.idProduto
-
-            let verProduto = products.find(function(product){
-                if(product.idProduto == idCompra){
-                    return product
-                }
-            })
-
-            adicionarCarrinho(verProduto)
-        }
-    }
-    let fechamentoCarrinho = []
-
-    function adicionarCarrinho(verProduto){
-
-        for(let i = 0; i < fechamentoCarrinho.length; i++){
-        if(fechamentoCarrinho[i].id === verProduto.id){
-            return
-        }
-        //listarprodutos(fechamentoCarrinho, comprasCarrinho)
-        }
-        fechamentoCarrinho.push(verProduto)
-    }
+    return liProduto
 }
-            //FUNÇÃO CALCULAR VALOR TOTAL - erradooooooooooooooooooooo
-//             let precoTotal  = 0
-//             function precoCompra(){
 
-//         for(let i = 0; i < fechamentoCarrinho.length; i++){
 
-//             precoTotal += fechamentoCarrinho.preco[i]
-//             const valorTotal = document.createElement('span')
-//             valorTotal.classList.add('valorTotal')
-//             valorTotal.innerText = `R$ ${precoTotal}`.replace('.',',')
-//             totalCompra.appendChild(valorTotal)
-//             }
-//             return precoTotal
-//         }
-//     }
-//     return liProduto
-// }
+let valorTotal = document.createElement('span')
+//Array de armazenamento do carrinho
+let carrinhoArray = []
+//quando clicar em adc ao carrinho precisa que o produto seja colocado no array carrinho
+function produtoNoCarrinho(produto){
+    comprasCarrinho.innerHTML = ''
+    carrinhoArray.push(produto)
+    criarCardsCarrinho(carrinhoArray)
+    numeroQuantidade.innerText = `${carrinhoArray.length}`
+}
 
-// // function quantidadeTotal()
+
+
+//criar o card renderizado à partir do array - comprasCarrinho
+function criarCardsCarrinho(listaCarrinho){
+
+    for(let i = 0; i < listaCarrinho.length; i++){
+        let imagemCarrinho = listaCarrinho[i].imagem
+        let nomeCarrinho = listaCarrinho[i].nome
+        let precoCarrinho = listaCarrinho[i].preco
+
+        let liCarrinho = document.createElement('li')
+        let tagDiv = document.createElement('div')
+        let tagImagem = document.createElement('img')
+        let h2 = document.createElement('h2')
+        let strong = document.createElement('strong')
+
+        let removerCarrinho = document.createElement('button')
+        removerCarrinho.innerText = 'Remover'
+        removerCarrinho.id = `${listaCarrinho[i].id}`
+
+
+        removerCarrinho.addEventListener('click', removerDoCarrinho)
+
+
+        liCarrinho.classList.add('liCarrinho')
+
+        tagImagem.src = imagemCarrinho
+        tagImagem.alt = nomeCarrinho
+        h2.innerText = nomeCarrinho
+
+        
+        valorTotal.classList.add('valorTotal')
+        valorTotal.innerText =  `R$ ${precoCompra(carrinhoArray).toFixed(2)}`.replace('.',',')
+        totalCompra.appendChild(valorTotal)
+
+        strong.innerText = `R$ ${precoCarrinho.toFixed(2)}`.replace('.',',')
+
+
+        tagDiv.append(h2, strong, removerCarrinho)
+        liCarrinho.append(tagImagem, tagDiv)
+        comprasCarrinho.appendChild(liCarrinho)
+
+
+
+
+        }
+    }
+
+
+
+//remover itens filhos do carrinho
+function removerDoCarrinho(produto){
+
+    comprasCarrinho.innerHTML = ''
+    valorTotal.innerHTML = 'R$ 0,00'
+    let produtoEncontrado = carrinhoArray.find(product => {
+    return product.id == parseInt(produto.target.id)})
+
+    let index = carrinhoArray.indexOf(produtoEncontrado)
+    carrinhoArray.splice(index, 1)
+
+    criarCardsCarrinho(carrinhoArray)
+
+    numeroQuantidade.innerText = `${carrinhoArray.length}`
+}
+
+
+//FUNÇÃO CALCULAR VALOR TOTAL - erradooooooooooooooooooooo
+
+function precoCompra(fechamentoCarrinho){
+    let precoTotal = 0
+    for(let key in carrinhoArray){
+        precoTotal = precoTotal + carrinhoArray[key].preco
+
+    }
+    return precoTotal
+}
+
+let numeroQuantidade = document.createElement('span')
+numeroQuantidade.classList.add('numeroQuantidade')
+quantidadeCompra.appendChild(numeroQuantidade)
